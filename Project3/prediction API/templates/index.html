@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lung Cancer Prediction</h1>
+
+    {% if predicted_text %}
+    <h2>Prediction Result:</h2>
+    <p>{{ predicted_text }}</p>
+    {% endif %}
+
+    <form method="post" action="/predict">
+        <!-- Demographic Information -->
+        <label for="age">Age (1-99):</label>
+        <input type='number' name="Age" placeholder="Age" required="required" min="1" max="99" value="1" />
+
+        <label for="gender">Gender:</label>
+        <select name="Gender" required="required">
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+        
+
+        <!-- Health Habits -->
+        <label for="air_pollution">Air Pollution (1-9):</label>
+        <input type='number' name="Air_Pollution" placeholder="Air Pollution" required="required" min="1" max="9" value="1" />
+
+        <label for="alcohol_use">Alcohol Use (1-9):</label>
+        <input type='number' name="Alcohol_Use" placeholder="Alcohol Use" required="required" min="1" max="9" value="1" />
+
+        <label for="dust_allergy">Dust Allergy (1-9):</label>
+        <input type='number' name="Dust_Allergy" placeholder="Dust Allergy" required="required" min="1" max="9" value="1" />
+
+        <label for="occupational_hazards">Occupational Hazards (1-9):</label>
+        <input type='number' name="Occupational_Hazards" placeholder="Occupational Hazards" required="required" min="1" max="9" value="1" />
+
+        <label for="genetic_risk">Genetic Risk (1-9):</label>
+        <input type='number' name="Genetic_Risk" placeholder="Genetic Risk" required="required" min="1" max="9" value="1" />
+
+        <label for="chronic_lung_disease">Chronic Lung Disease (1-9):</label>
+        <input type='number' name="Chronic_Lung_Disease" placeholder="Chronic Lung Disease" required="required" min="1" max="9" value="1" />
+
+        <label for="balanced_diet">Balanced Diet (1-9):</label>
+        <input type='number' name="Balanced_Diet" placeholder="Balanced Diet" required="required" min="1" max="9" value="1" />
+
+        <label for="obesity">Obesity (1-9):</label>
+        <input type='number' name="Obesity" placeholder="Obesity" required="required" min="1" max="9" value="1" />
+
+        <label for="smoking">Smoking (1-9):</label>
+        <input type='number' name="Smoking" placeholder="Smoking" required="required" min="1" max="9" value="1" />
+
+        <label for="passive_smoker">Passive Smoker (1-9):</label>
+        <input type='number' name="Passive_Smoker" placeholder="Passive Smoker" required="required" min="1" max="9" value="1" />
+
+        <label for="chest_pain">Chest Pain (1-9):</label>
+        <input type='number' name="Chest_Pain" placeholder="Chest Pain" required="required" min="1" max="9" value="1" />
+
+        <label for="coughing_of_blood">Coughing of Blood (1-9):</label>
+        <input type='number' name="Coughing_of_Blood" placeholder="Coughing of Blood" required="required" min="1" max="9" value="1" />
+
+        <label for="fatigue">Fatigue (1-9):</label>
+        <input type='number' name="Fatigue" placeholder="Fatigue" required="required" min="1" max="9" value="1" />
+
+        <label for="weight_loss">Weight Loss (1-9):</label>
+        <input type='number' name="Weight_Loss" placeholder="Weight Loss" required="required" min="1" max="9" value="1" />
+
+        <label for="shortness_of_breath">Shortness of Breath (1-9):</label>
+        <input type='number' name="Shortness_of_Breath" placeholder="Shortness of Breath" required="required" min="1" max="9" value="1" />
+
+        <label for="wheezing">Wheezing (1-9):</label>
+        <input type='number' name="Wheezing" placeholder="Wheezing" required="required" min="1" max="9" value="1" />
+
+        <label for="swallowing_difficulty">Swallowing Difficulty (1-9):</label>
+        <input type='number' name="Swallowing_Difficulty" placeholder="Swallowing Difficulty" required="required" min="1" max="9" value="1" />
+
+        <label for="clubbing_of_finger_nails">Clubbing of Finger Nails (1-9):</label>
+        <input type='number' name="Clubbing_of_Finger_Nails" placeholder="Clubbing of Finger Nails" required="required" min="1" max="9" value="1" />
+
+        <label for="frequent_cold">Frequent Cold (1-9):</label>
+        <input type='number' name="Frequent_Cold" placeholder="Frequent Cold" required="required" min="1" max="9" value="1" />
+
+        <label for="dry_cough">Dry Cough (1-9):</label>
+        <input type='number' name="Dry_Cough" placeholder="Dry Cough" required="required" min="1" max="9" value="1" />
+
+        <label for="snoring">Snoring (1-9):</label>
+        <input type='number' name="Snoring" placeholder="Snoring" required="required" min="1" max="9" value="1" />
+
+    
+        <button type="submit">Predict</button>
+    </form>
+
+  
+</body>
+</html>
